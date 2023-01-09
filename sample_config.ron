@@ -1,0 +1,52 @@
+(
+	device: "/dev/input/by-path/platform-i8042-serio-0-event-kbd",
+	
+	default_mode: "1",
+
+	vdevices: {
+		"my-virtual-keyboard": (keys: ["KEY_ENTER", "KEY_A"]),
+		"my-virtual-pad": (keys: ["BTN_WEST", "BTN_NORTH", "BTN_EAST", "BTN_SOUTH"]),
+	},
+
+	modes: {
+		"1": Mode(
+			direct: {
+				"my-virtual-keyboard": {
+					Key("KEY_LEFTSHIFT"): Key("KEY_ENTER"),
+				}
+			},
+			custom: {
+				Key("KEY_2"): ChangeMode("2"),
+				Key("KEY_3"): ChangeMode("3"),
+			},
+		),
+		"2": Mode(
+			direct: {
+				"my-virtual-keyboard": {
+					Key("KEY_LEFTSHIFT"): Key("KEY_A"),
+				}
+			},
+			custom: {
+				Key("KEY_1"): ChangeMode("1"),
+				Key("KEY_3"): ChangeMode("3"),
+			},
+		),
+		"3": Mode(
+			direct: {
+				"my-virtual-keyboard": {
+					Key("KEY_RIGHTSHIFT"): Key("KEY_A"),
+				},
+				"my-virtual-pad": {
+					Key("KEY_LEFT"): Key("BTN_WEST"),
+					Key("KEY_RIGHT"): Key("BTN_EAST"),
+					Key("KEY_UP"): Key("BTN_NORTH"),
+					Key("KEY_DOWN"): Key("BTN_SOUTH"),
+				}
+			},
+			custom: {
+				Key("KEY_1"): ChangeMode("1"),
+				Key("KEY_2"): ChangeMode("2"),
+			},
+		),
+	},
+)
