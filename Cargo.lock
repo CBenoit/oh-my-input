@@ -53,6 +53,7 @@ checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 [[package]]
 name = "evdev"
 version = "0.12.1"
+source = "git+https://github.com/CBenoit/evdev?rev=78ba4a69fb01ca389ac586691253716325f20ef4#78ba4a69fb01ca389ac586691253716325f20ef4"
 dependencies = [
  "bitvec",
  "cfg-if",
@@ -98,7 +99,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "oh-my-controller"
+name = "oh-my-input"
 version = "0.1.0"
 dependencies = [
  "anyhow",
